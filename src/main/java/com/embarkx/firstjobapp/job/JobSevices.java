@@ -6,7 +6,9 @@ public interface JobSevices {
 
 
     List<Job> findAll();
-    String createJob (Job job);
+
+    String createJob(Job job);
+
     Job getJobById(Long id);
 
     boolean deleteById(Long id);

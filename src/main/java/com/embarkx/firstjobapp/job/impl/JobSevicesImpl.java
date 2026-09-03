@@ -13,8 +13,8 @@ import java.util.List;
 public class JobSevicesImpl implements JobSevices {
 
 
-    private List<Job> jobs= new ArrayList<>();
-    private Long nextId=1L;
+    private List<Job> jobs = new ArrayList<>();
+    private Long nextId = 1L;
 
     @Override
     public List<Job> findAll() {
@@ -31,25 +31,25 @@ public class JobSevicesImpl implements JobSevices {
     @Override
     public Job getJobById(Long id) {
 
-        for (Job job:jobs){
+        for (Job job : jobs) {
 
-            if (job.getId().equals(id)){
+            if (job.getId().equals(id)) {
                 return job;
             }
         }
-return  null;
+        return null;
     }
 
     @Override
     public boolean deleteById(Long id) {
 
-        Iterator<Job> iterator= jobs.iterator();
+        Iterator<Job> iterator = jobs.iterator();
 
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
 
-            Job job=iterator.next();
+            Job job = iterator.next();
 
-            if (job.getId().equals(id)){
+            if (job.getId().equals(id)) {
                 iterator.remove();
                 return true;
             }
@@ -62,16 +62,16 @@ return  null;
     @Override
     public boolean updateJob(Long id, Job updatejob) {
 
-        for (Job job:jobs){
+        for (Job job : jobs) {
 
-           if(job.getId().equals(id)){
-               job.setTitle(updatejob.getTitle());
-               job.setDescription(updatejob.getDescription());
-               job.setMinSalary(updatejob.getMinSalary());
-               job.setMaxSalary(updatejob.getMaxSalary());
-               job.setLocation(updatejob.getLocation());
-               return true;
-           }
+            if (job.getId().equals(id)) {
+                job.setTitle(updatejob.getTitle());
+                job.setDescription(updatejob.getDescription());
+                job.setMinSalary(updatejob.getMinSalary());
+                job.setMaxSalary(updatejob.getMaxSalary());
+                job.setLocation(updatejob.getLocation());
+                return true;
+            }
         }
         return false;
     }
